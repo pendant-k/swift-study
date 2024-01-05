@@ -8,12 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CalculateViewController: UIViewController {
+    var calculatorBrain = CalculatorBrain()
+    
     @IBOutlet var weightLabel: UILabel!
     @IBOutlet var heightLabel: UILabel!
     
     @IBOutlet var heightSlider: UISlider!
     @IBOutlet var weightSlider: UISlider!
+    
+    var bmi: String? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,13 +39,21 @@ class ViewController: UIViewController {
         let height = heightSlider.value
         let weight = weightSlider.value
         
-        let bmi = String(format: "%.2f", weight / pow(height, 2))
+        calculatorBrain.calculateBMI(height: height, weight: weight)
         
-        //        print(bmi)
-        let secondVC = SecondViewController()
-        secondVC.bmiValue = bmi
+        performSegue(withIdentifier: "goToResult", sender: self)
         
         // present - modal 형태로 View controller를 띄우는 것
         //        present(secondVC, animated: true, completion: nil)
+    }
+    
+    // performSegue 실행 전에 실행되는 함수
+    // downcasting
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToResult" {
+            // 실제 연결되는 ViewController를 정의해줌
+            let destinationVC = segue.destination as! ResultViewController
+            destinationVC.calculatorBrain = calculatorBrain
+        }
     }
 }
