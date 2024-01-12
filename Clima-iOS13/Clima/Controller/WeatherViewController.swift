@@ -8,17 +8,22 @@
 
 import UIKit
 
-class WeatherViewController: UIViewController {
+class WeatherViewController: UIViewController, UITextFieldDelegate {
+    @IBOutlet var conditionImageView: UIImageView!
+    @IBOutlet var temperatureLabel: UILabel!
+    @IBOutlet var cityLabel: UILabel!
+    @IBOutlet var searchTextField: UITextField!
 
-    @IBOutlet weak var conditionImageView: UIImageView!
-    @IBOutlet weak var temperatureLabel: UILabel!
-    @IBOutlet weak var cityLabel: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        // delegate 설정을 통해서 viewController가 typing event를 listening할 수 있음
+        searchTextField.delegate = self
     }
 
-
+    @IBAction func searchPressed(_ sender: UIButton) {
+        if searchTextField.text != nil {
+            print(searchTextField.text!)
+        }
+    }
 }
-
