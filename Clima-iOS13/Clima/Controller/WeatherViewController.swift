@@ -28,6 +28,8 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
+    // ViewController에 UITextFieldDelegate를 함께 사용하면 활용할 수 있는 매서드들이다.
+
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         if textField.text!.isEmpty {
             return true
@@ -46,3 +48,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         searchTextField.text = ""
     }
 }
+
+// Protocol
+// 어떠한 객체에 대한 생김새를 약속하는 것
+// blueprint를 지정해두는 것임
