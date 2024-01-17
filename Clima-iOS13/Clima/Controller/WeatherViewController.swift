@@ -8,6 +8,7 @@
 
 import UIKit
 
+// UITextFieldDelegate는 protocol임
 class WeatherViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var conditionImageView: UIImageView!
     @IBOutlet var temperatureLabel: UILabel!
