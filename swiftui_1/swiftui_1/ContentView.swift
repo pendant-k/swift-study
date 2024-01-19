@@ -17,53 +17,51 @@ struct ContentView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 200, height: 200)
+                .padding()
 
             Text("헤드라인 입니다")
                 .font(.headline)
                 .bold()
+                .padding()
 
             Text("서브 헤드라인 입니다.")
                 .font(.subheadline)
-                .padding(.vertical)
+                .padding()
 
-            Text("세번째 서브 헤드라인 입니다.")
-                .font(.subheadline)
-                .padding(.vertical)
+            Text("세번째 body 입니다.")
+                .font(.system(size: 10))
+                .padding()
 
             HStack {
-                Button {
-                    print("First button pressed")
-                } label: {
-                    Text("Button 1")
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(.blue)
-                }
-
-                Button {
-                    // logic
-                } label: {
-                    Text("Button 2")
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(.green)
-                }
+                MyButton(buttonTitle: "Button 1", buttonColor: .blue,
+                         onPressed: {
+                             print("first button pressed")
+                         })
+                MyButton(buttonTitle: "Button 2", buttonColor: .green,
+                         onPressed: {
+                             print("second button pressed")
+                         })
             }
 
             Button {
                 // button event
                 print("Hello")
             } label: {
-                VStack(
-                    Image(systemName: "left")
+                VStack {
+                    Image(systemName: "arrowshape.right.circle.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50)
+
                     Text("Click Me")
-                        .padding()
-                        .background(.blue)
-                        .foregroundColor(.white)
-                )
+                }
+
+                .padding()
+                .background(.orange)
+                .foregroundColor(.white)
+                .cornerRadius(20)
             }
         }
-        .padding()
     }
 }
 
