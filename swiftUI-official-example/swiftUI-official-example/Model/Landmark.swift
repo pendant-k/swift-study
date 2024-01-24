@@ -9,7 +9,8 @@ import CoreLocation
 import Foundation
 import SwiftUI
 
-struct Landmark: Hashable, Codable {
+// Identifiable protocol -> 반드시 "id" 필드가 존재해야함
+struct Landmark: Hashable, Codable, Identifiable {
     var id: Int
     var name: String
     var park: String
