@@ -16,6 +16,7 @@ struct Landmark: Hashable, Codable, Identifiable {
     var park: String
     var state: String
     var description: String
+    var isFavorite: Bool
 
     // Code 이해가 필요함
     // Image struct 자체를 property로 가짐.
