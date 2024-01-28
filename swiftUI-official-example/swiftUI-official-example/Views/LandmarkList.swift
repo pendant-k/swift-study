@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct LandmarkList: View {
+    // Environment ?
+    @Environment(ModelData.self) var modelData
     // State -> Flutter의 State와 유사함
     // UI에 변화를 주는 변수
     @State private var showFavoritesOnly = true
 
     // Getter
     var filteredLandmarks: [Landmark] {
-        landmarks.filter { landmark in
+        modelData.landmarks.filter { landmark in
             // showFavoritesOnly -> false이면 모든 item
             !showFavoritesOnly || landmark.isFavorite
         }
