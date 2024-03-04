@@ -9,6 +9,7 @@
 import Foundation
 
 // Decodable -> JSON Decode
+// 받아온 JSON을 Swift Object로 변환해주기 위한 data class
 struct WeatherData: Decodable {
     let name: String
     let main: Main

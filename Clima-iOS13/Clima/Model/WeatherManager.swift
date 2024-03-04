@@ -9,6 +9,8 @@ import Foundation
 
 let api_key = "64489df3908f930142d910384a877a56"
 
+// Perform Networking
+// Decode JSON to data class
 struct WeatherManager {
     let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=\(api_key)&units=metric"
 
@@ -31,6 +33,7 @@ struct WeatherManager {
                 }
                 if let safeData = data {
                     // self 키워드를 통해서 해당 struct 내의 함수를 실행한다고 알려주어야함 (In Closure)
+                    // WeatherManager struct의 parseJSON 메서드임을 명시
                     self.parseJSON(weatherData: safeData)
                 }
             }
